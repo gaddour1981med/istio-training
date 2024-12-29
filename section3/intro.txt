@@ -1,0 +1,4 @@
+1. Gateway
+2. VirtualService
+3. DestinationRule
+4. ServiceEntry

@@ -1,0 +1,22 @@
+---
+# Source: generic-chart/templates/istio-vs.yaml
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: web-virtualservice
+  namespace: web-apps
+spec:
+  hosts:
+     - "mohamed.domain.com"     
+  gateways:
+     -  "web-apps/web-gateway"
+  http:
+  - match:
+     - uri:
+       prefix: /
+    route:
+    - destination:         
+          host: "nginx-service.web-apps.svc.cluster.local"
+          port:
+            number:  80
+
