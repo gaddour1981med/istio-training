@@ -1,0 +1,15 @@
+---
+# Source: generic-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+ name: "nginx-service"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 443
+      targetPort: 443
+      protocol:  TCP
+      name: https 
+  selector:
+    app: web

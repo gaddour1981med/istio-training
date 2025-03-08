@@ -10,13 +10,14 @@ spec:
      - "web.domain.com"     
   gateways:
      -  "web-apps/web-gateway"
-  http:
+  tls:
   - match:
-     - uri:
-       prefix: /
+     - port: 443
+       sniHosts:
+         - "web.domain.com"
     route:
     - destination:         
           host: "nginx-service.web-apps.svc.cluster.local"
           port:
-            number:  80
+            number:  443
 

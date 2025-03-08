@@ -30,4 +30,15 @@ resource "aws_ssm_parameter" "ca1Rootchain"{
     type = "String"
 }
 
+resource "aws_ssm_parameter" "crtCa2"{
+    name ="/tarining/istio/certs/ca2/crt"
+    value = tls_locally_signed_cert.subca2.cert_pem
+    type = "String"
+}
+
+resource "aws_ssm_parameter" "crtCa2PrivKey"{
+     name ="/tarining/istio/certs/ca2/private_key"
+    value = tls_private_key.subca2.private_key_pem
+    type = "SecureString"
+}
 

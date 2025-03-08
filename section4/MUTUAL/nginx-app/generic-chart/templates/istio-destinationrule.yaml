@@ -1,0 +1,12 @@
+---
+# Source: generic-chart/templates/istio-destinationrule.yaml
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: "nginx-destination-rule"
+  namespace: web-apps
+spec:
+  host: "nginx-service.web-apps.svc.cluster.local"
+  trafficPolicy:
+    tls:
+      mode: DISABLE
